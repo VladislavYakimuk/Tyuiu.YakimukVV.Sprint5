@@ -8,8 +8,8 @@ namespace Tyuiu.YakimukVV.Sprint5.Task0.V23.Lib
     {
         public string SaveToFileTextData(int x)
         {
-            double y = (1 + x * x * x) / (x * x);
-            y = Math.Round(y, 2);
+            double y = (1 + Math.Pow(x, 3)) / Math.Pow(x, 2);
+            y = Math.Round(y, 3);
 
             string filePath = Path.Combine(Path.GetTempPath(), "OutPutFileTask0.txt");
 
