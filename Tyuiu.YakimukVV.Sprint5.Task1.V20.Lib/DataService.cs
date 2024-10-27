@@ -9,30 +9,23 @@ namespace Tyuiu.YakimukVV.Sprint5.Task1.V20.Lib
         public string SaveToFileTextData(int startValue, int stopValue)
         {
             string filePath = Path.Combine(Path.GetTempPath(), "OutPutFileTask1.txt");
-
             using (StreamWriter writer = new StreamWriter(filePath))
             {
-                writer.WriteLine("x\tf(x)");
-
                 for (int x = startValue; x <= stopValue; x++)
                 {
                     double fx;
-
                     try
-                    {                       
+                    {
                         fx = CalculateFunction(x);
                     }
                     catch (DivideByZeroException)
                     {
                         fx = 0;
                     }
-
                     fx = Math.Round(fx, 2);
-
-                    writer.WriteLine($"{x}\t{fx}");
+                    writer.WriteLine(fx.ToString().Replace(',', '.'));
                 }
             }
-
             return filePath;
         }
 
