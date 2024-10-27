@@ -23,7 +23,7 @@ namespace Tyuiu.YakimukVV.Sprint5.Task1.V20.Lib
                         fx = 0;
                     }
                     fx = Math.Round(fx, 2);
-                    writer.WriteLine(fx.ToString().Replace(',', '.'));
+                    writer.WriteLine(fx.ToString().Replace(',', ','));
                 }
             }
             return filePath;
