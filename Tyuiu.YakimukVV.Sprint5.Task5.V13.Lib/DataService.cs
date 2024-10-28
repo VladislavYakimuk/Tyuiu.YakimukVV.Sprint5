@@ -37,7 +37,7 @@ namespace Tyuiu.YakimukVV.Sprint5.Task5.V13.Lib
             }
 
             double res = aver / count;
-            return res;
+            return (-1 * res);
         }
     }
 }
