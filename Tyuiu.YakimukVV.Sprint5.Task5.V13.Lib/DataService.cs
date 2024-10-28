@@ -1,9 +1,5 @@
 ﻿using tyuiu.cources.programming.interfaces.Sprint5;
-using System;
 using System.IO;
-using System.Linq;
-using System.Collections.Generic;
-using System.Globalization;
 
 namespace Tyuiu.YakimukVV.Sprint5.Task5.V13.Lib
 {
@@ -12,32 +8,37 @@ namespace Tyuiu.YakimukVV.Sprint5.Task5.V13.Lib
         public double LoadFromDataFile(string path)
         {
             double res = 0;
-            List<double> validNumbers = new List<double>();
+            using (StreamReader reader = new StreamReader(path))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    res += Convert.ToDouble(line);
+                }
+            }
+            return res;
+        }
+
+        public double CalculateAverageInRange(string path, double minValue, double maxValue)
+        {
+            double sum = 0;
+            int count = 0;
 
             using (StreamReader reader = new StreamReader(path))
             {
-                string? line;
+                string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    line = line.Replace(".", ",");
-
-                    if (double.TryParse(line, NumberStyles.Float, CultureInfo.InvariantCulture, out double value))
+                    double value = Convert.ToDouble(line);
+                    if (value >= minValue && value <= maxValue)
                     {
-
-                        if (value >= -1.5 && value <= 1.5)
-                        {
-                            validNumbers.Add(value);
-                        }
+                        sum += value;
+                        count++;
                     }
                 }
             }
 
-            if (validNumbers.Count > 0)
-            {
-                res = validNumbers.Average();
-            }
-
-            return Math.Round(res, 3);
+            return count > 0 ? sum / count : 0; 
         }
     }
 }

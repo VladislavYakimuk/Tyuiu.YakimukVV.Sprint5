@@ -1,7 +1,4 @@
 ﻿using Tyuiu.YakimukVV.Sprint5.Task5.V13.Lib;
-using System;
-using System.IO;
-
 namespace Tyuiu.YakimukVV.Sprint5.Task5.V13
 {
     internal class Program
@@ -12,7 +9,6 @@ namespace Tyuiu.YakimukVV.Sprint5.Task5.V13
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
-
             string path = Path.Combine(Path.GetTempPath(), "DataSprint5", "InPutDataFileTask5V13.txt");
             Console.WriteLine("Данные находятся в файле: " + path);
 
@@ -20,8 +16,11 @@ namespace Tyuiu.YakimukVV.Sprint5.Task5.V13
             Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
             Console.WriteLine("***************************************************************************");
 
-            double result = ds.LoadFromDataFile(path);
-            Console.WriteLine("Среднее значение чисел в диапазоне [-1.5, 1.5]: " + result.ToString("F3"));
+            double res = ds.LoadFromDataFile(path);
+
+            double average = ds.CalculateAverageInRange(path, -1.5, 1.5);
+            Console.WriteLine("Среднее значение чисел в диапазоне [-1.5, 1.5]: " + Math.Round(average, 3));
+
             Console.ReadKey();
         }
     }
