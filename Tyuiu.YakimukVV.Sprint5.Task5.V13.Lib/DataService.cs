@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using tyuiu.cources.programming.interfaces.Sprint5;
 using System.IO;
+using tyuiu.cources.programming.interfaces.Sprint5;
 
 namespace Tyuiu.YakimukVV.Sprint5.Task5.V13.Lib
 {
@@ -14,18 +10,32 @@ namespace Tyuiu.YakimukVV.Sprint5.Task5.V13.Lib
         {
             double aver = 0;
             int count = 0;
+
             using (StreamReader reader = new StreamReader(path))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    if (Convert.ToDouble(line) >= -1.5 && Convert.ToDouble(line) <= 1.5)
+                    string[] numbers = line.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (var numberStr in numbers)
                     {
-                        aver = aver + Convert.ToDouble(line);
-                        count++;
+                        if (double.TryParse(numberStr, out double number))
+                        {
+                            if (number >= -1.5 && number <= 1.5)
+                            {
+                                aver += number;
+                                count++;
+                            }
+                        }
                     }
                 }
             }
+
+            if (count == 0)
+            {
+                throw new InvalidOperationException("Не найдено валидных чисел в заданном диапазоне.");
+            }
+
             double res = aver / count;
             return res;
         }
