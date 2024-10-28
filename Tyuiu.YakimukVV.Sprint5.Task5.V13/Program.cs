@@ -18,8 +18,7 @@ namespace Tyuiu.YakimukVV.Sprint5.Task5.V13
 
             double res = ds.LoadFromDataFile(path);
 
-            double average = ds.CalculateAverageInRange(path, -1.5, 1.5);
-            Console.WriteLine("Среднее значение чисел в диапазоне [-1.5, 1.5]: " + Math.Round(average, 3));
+            Console.WriteLine("Среднее значение чисел в диапазоне [-1.5, 1.5]: " + res);
 
             Console.ReadKey();
         }
