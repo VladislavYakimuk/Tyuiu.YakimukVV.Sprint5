@@ -14,15 +14,16 @@ namespace Tyuiu.YakimukVV.Sprint5.Task5.V13.Lib
             double res = 0;
             List<double> validNumbers = new List<double>();
 
-            var culture = new CultureInfo("ru-RU");
-
             using (StreamReader reader = new StreamReader(path))
             {
                 string? line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    if (double.TryParse(line, NumberStyles.Float, culture, out double value))
+                    line = line.Replace(".", ",");
+
+                    if (double.TryParse(line, NumberStyles.Float, CultureInfo.InvariantCulture, out double value))
                     {
+
                         if (value >= -1.5 && value <= 1.5)
                         {
                             validNumbers.Add(value);
