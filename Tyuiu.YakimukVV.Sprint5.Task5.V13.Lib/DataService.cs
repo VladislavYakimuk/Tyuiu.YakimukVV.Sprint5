@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Tyuiu.YakimukVV.Sprint5.Task5.V13.Lib
 {
@@ -13,10 +14,13 @@ namespace Tyuiu.YakimukVV.Sprint5.Task5.V13.Lib
             double res = 0;
             using (StreamReader reader = new StreamReader(path))
             {
-                string line;
+                string? line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    res += Convert.ToDouble(line);
+                    if (double.TryParse(line, NumberStyles.Float, CultureInfo.InvariantCulture, out double value))
+                    {
+                        res += value;
+                    }
                 }
             }
             return res;
@@ -28,13 +32,15 @@ namespace Tyuiu.YakimukVV.Sprint5.Task5.V13.Lib
 
             using (StreamReader reader = new StreamReader(path))
             {
-                string line;
+                string? line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    double number = Convert.ToDouble(line);
-                    if (number >= minRange && number <= maxRange)
+                    if (double.TryParse(line, NumberStyles.Float, CultureInfo.InvariantCulture, out double number))
                     {
-                        numbersInRange.Add(number);
+                        if (number >= minRange && number <= maxRange)
+                        {
+                            numbersInRange.Add(number);
+                        }
                     }
                 }
             }
