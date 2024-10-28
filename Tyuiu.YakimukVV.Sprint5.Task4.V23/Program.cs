@@ -9,7 +9,7 @@ namespace Tyuiu.YakimukVV.Sprint5.Task4.V23
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
-            string path = Path.Combine("C:", "DataSprint5", "InPutDataFileTask4V23.txt");
+            string path = Path.Combine(Path.GetTempPath(), "DataSprint5", "InPutDataFileTask4V23.txt");
             Console.WriteLine("Данные находятся в файле: " + path);
 
             Console.WriteLine("***************************************************************************");
