@@ -12,46 +12,31 @@ namespace Tyuiu.YakimukVV.Sprint5.Task5.V13.Lib
         public double LoadFromDataFile(string path)
         {
             double res = 0;
+            List<double> validNumbers = new List<double>();
+
             using (StreamReader reader = new StreamReader(path))
             {
                 string? line;
                 while ((line = reader.ReadLine()) != null)
                 {
+
                     if (double.TryParse(line, NumberStyles.Float, CultureInfo.InvariantCulture, out double value))
                     {
-                        res += value;
-                    }
-                }
-            }
-            return res;
-        }
 
-        public double CalculateAverageInRange(string path, double minRange, double maxRange)
-        {
-            List<double> numbersInRange = new List<double>();
-
-            using (StreamReader reader = new StreamReader(path))
-            {
-                string? line;
-                while ((line = reader.ReadLine()) != null)
-                {
-                    if (double.TryParse(line, NumberStyles.Float, CultureInfo.InvariantCulture, out double number))
-                    {
-                        if (number >= minRange && number <= maxRange)
+                        if (value >= -1.5 && value <= 1.5)
                         {
-                            numbersInRange.Add(number);
+                            validNumbers.Add(value);
                         }
                     }
                 }
             }
 
-            if (numbersInRange.Count == 0)
+            if (validNumbers.Count > 0)
             {
-                return 0; 
+                res = validNumbers.Average();
             }
 
-            double average = numbersInRange.Average();
-            return Math.Round(average, 3); 
+            return Math.Round(res, 3);
         }
     }
 }

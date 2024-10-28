@@ -20,8 +20,8 @@ namespace Tyuiu.YakimukVV.Sprint5.Task5.V13
             Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
             Console.WriteLine("***************************************************************************");
 
-            double average = ds.CalculateAverageInRange(path, -1.5, 1.5);
-            Console.WriteLine("Среднее значение чисел в диапазоне [-1.5, 1.5]: " + average.ToString("F3"));
+            double result = ds.LoadFromDataFile(path);
+            Console.WriteLine("Среднее значение чисел в диапазоне [-1.5, 1.5]: " + result.ToString("F3"));
             Console.ReadKey();
         }
     }
