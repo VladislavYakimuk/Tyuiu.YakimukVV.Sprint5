@@ -16,7 +16,7 @@ namespace Tyuiu.YakimukVV.Sprint5.Task5.V13.Lib
                     string line;
                     while ((line = reader.ReadLine()) != null)
                     {
-                        string[] parts = line.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                        string[] parts = line.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
                         foreach (string part in parts)
                         {
                             if (double.TryParse(part, out double number))
@@ -47,7 +47,7 @@ namespace Tyuiu.YakimukVV.Sprint5.Task5.V13.Lib
                     string line;
                     while ((line = reader.ReadLine()) != null)
                     {
-                        string[] parts = line.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                        string[] parts = line.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
                         foreach (string part in parts)
                         {
                             if (double.TryParse(part, out double number))
