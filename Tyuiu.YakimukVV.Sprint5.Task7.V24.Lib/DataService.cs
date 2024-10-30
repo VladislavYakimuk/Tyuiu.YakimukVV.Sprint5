@@ -12,7 +12,7 @@ namespace Tyuiu.YakimukVV.Sprint5.Task7.V24.Lib
 
             string modifiedData = Regex.Replace(data, @"\b[а-яА-ЯёЁ]+\b", "слово");
 
-            string outputPath = @"C:\DataSprint5\OutPutDataFileTask7V24.txt";
+            string outputPath = Path.Combine(Path.GetDirectoryName(path), "OutPutDataFileTask7V24.txt");
 
             File.WriteAllText(outputPath, modifiedData);
 
