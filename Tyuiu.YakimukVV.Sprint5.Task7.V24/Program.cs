@@ -1,4 +1,7 @@
-﻿using Tyuiu.YakimukVV.Sprint5.Task7.V24.Lib;
+﻿using System;
+using System.IO;
+using Tyuiu.YakimukVV.Sprint5.Task7.V24.Lib;
+
 namespace Tyuiu.YakimukVV.Sprint5.Task7.V24
 {
     internal class Program
@@ -16,7 +19,7 @@ namespace Tyuiu.YakimukVV.Sprint5.Task7.V24
             Console.WriteLine("* Выполнил: Якимук Владислав Владимирович | ИБКСб-24-1                    *");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* УСЛОВИЕ:                                                                *");
-            Console.WriteLine("* Дан файл С:|DataSprint5|InPutDataFileTask7V24.txt в котором есть набор  *");
+            Console.WriteLine("* Дан файл C:\\DataSprint5\\InPutDataFileTask7V24.txt в котором есть набор *");
             Console.WriteLine("* символьных данных. Заменить все русские слова на слово \"слово\".       *");
             Console.WriteLine("* Полученный результат сохранить в файл OutPutDataFileTask7V24.txt        *");
             Console.WriteLine("***************************************************************************");
@@ -25,7 +28,8 @@ namespace Tyuiu.YakimukVV.Sprint5.Task7.V24
 
             string path = @"C:\DataSprint5\InPutDataFileTask7V24.txt";
             string res = File.ReadAllText(path);
-            Console.WriteLine(res); Console.WriteLine("Файл находится тут: " + path);
+            Console.WriteLine(res);
+            Console.WriteLine("Файл находится тут: " + path);
 
             Console.WriteLine("****************************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ:                                                   *");

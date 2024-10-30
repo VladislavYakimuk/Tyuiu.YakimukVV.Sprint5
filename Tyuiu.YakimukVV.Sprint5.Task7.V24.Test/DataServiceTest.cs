@@ -1,3 +1,6 @@
+using System.IO;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 namespace Tyuiu.YakimukVV.Sprint5.Task7.V24.Test
 {
     [TestClass]
@@ -6,7 +9,7 @@ namespace Tyuiu.YakimukVV.Sprint5.Task7.V24.Test
         [TestMethod]
         public void CheckedExistsFile()
         {
-            string path = @"C:DataSprint5\InPutDataFileTask7V24.txt";
+            string path = @"C:\DataSprint5\InPutDataFileTask7V24.txt";
 
             FileInfo fileInfo = new FileInfo(path);
             bool fileExists = fileInfo.Exists;
