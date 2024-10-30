@@ -9,7 +9,7 @@ namespace Tyuiu.YakimukVV.Sprint5.Task7.V24.Test
         [TestMethod]
         public void CheckedExistsFile()
         {
-            string path = @"C:\DataSprint5\InPutDataFileTask7V24.txt";
+            string path = @"C:\Users\jetjo\AppData\Local\Temp\DataSprint5\InPutDataFileTask7V24.txt";
 
             FileInfo fileInfo = new FileInfo(path);
             bool fileExists = fileInfo.Exists;

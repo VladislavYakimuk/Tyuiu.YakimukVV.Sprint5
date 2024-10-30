@@ -19,8 +19,8 @@ namespace Tyuiu.YakimukVV.Sprint5.Task7.V24
             Console.WriteLine("* Выполнил: Якимук Владислав Владимирович | ИБКСб-24-1                    *");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* УСЛОВИЕ:                                                                *");
-            Console.WriteLine("* Дан файл C:\\DataSprint5\\InPutDataFileTask7V24.txt в котором есть набор *");
-            Console.WriteLine("* символьных данных. Заменить все русские слова на слово \"слово\".       *");
+            Console.WriteLine("* Дан файл C:\DataSprint5\InPutDataFileTask7V24.txt в котором есть набор  *");
+            Console.WriteLine("* символьных данных. Заменить все русские слова на слово <слово>.         *");
             Console.WriteLine("* Полученный результат сохранить в файл OutPutDataFileTask7V24.txt        *");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");

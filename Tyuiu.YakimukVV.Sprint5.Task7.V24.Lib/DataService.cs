@@ -9,17 +9,14 @@ namespace Tyuiu.YakimukVV.Sprint5.Task7.V24.Lib
         public string LoadDataAndSave(string path)
         {
             string data = File.ReadAllText(path);
-
             string modifiedData = Regex.Replace(data, @"\b[а-яА-ЯёЁ]+\b", "слово");
 
-            string directoryPath = Path.GetDirectoryName(path) ?? Path.GetTempPath();
-            string outputPath = Path.Combine(directoryPath, "OutPutDataFileTask7V24.txt");
-
-            Directory.CreateDirectory(directoryPath);
+            string tempDirectory = Path.GetTempPath();  
+            string outputPath = Path.Combine(tempDirectory, "OutPutDataFileTask7V24.txt");
 
             File.WriteAllText(outputPath, modifiedData);
 
-            return outputPath;
+            return outputPath;  
         }
     }
 }
